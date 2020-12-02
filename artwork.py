@@ -19,10 +19,9 @@ for art in art_list:
     art_image = Image.open(art_path + art)
     #Redimensionar o tamanho da arte
     art_resized = art_image.resize((300, 200))
+    
     #Criar a imagem preta um pouco maior que imagem original para fazer a função de moldura
     border = Image.new('RGB', (320, 220), color = 'black')
-    #Separar o nome da arte da extensão do arquivo
-    art_name = art.split('.')[0]
     #Criar cópia da imagem da borda (moldura)
     art_border = border.copy()
     #Colar a imagem da arte sobre a moldura e arrumar o posicionamento
@@ -33,6 +32,6 @@ for art in art_list:
     #Colar a imagem da arte com moldura sobre o background e arrumar o posicionamento
     art_background.paste(art_border, (245, 455))
     #Salvar imagem
-    art_background.save(art_path + 'arte_exposta - ' + art_name + '.jpg')
+    art_background.save(art_path + 'arte_exposta - ' + art)
 
 print ('Processo completo')
